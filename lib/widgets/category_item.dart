@@ -3,7 +3,7 @@ import 'package:my_meal/screens/category_meal_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final String title;
-  final Color color;
+  final String imageUrl;
   final String id;
 
   void showMealScreen(BuildContext ctx) {
@@ -11,7 +11,7 @@ class CategoryItem extends StatelessWidget {
         arguments: {"id": id, "title": title});
   }
 
-  CategoryItem(this.title, this.id, this.color);
+  CategoryItem(this.title, this.id, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +19,47 @@ class CategoryItem extends StatelessWidget {
       onTap: () => showMealScreen(context),
       borderRadius: BorderRadius.circular(20),
       splashColor: Colors.amber,
-      child: Container(
-        padding: EdgeInsets.all(16),
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              color.withOpacity(0.7),
-              color,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(20),
-        ),
+      child: Column(
+        children: [
+          Container(
+            height: 200,
+            margin: EdgeInsets.symmetric(vertical: 10),
+            width: MediaQuery.of(context).size.width - 100,
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    imageUrl,
+                    color: Colors.black.withOpacity(0.5),
+                    colorBlendMode: BlendMode.darken,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  // bottom: 20,
+                  // right: 10,
+                  child: Container(
+                    width: 200,
+                    height: 70,
+                    decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(30),
+                            bottomLeft: Radius.circular(30))),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: Text(
+                      title,
+                      style: TextStyle(fontSize: 24, color: Colors.white),
+                      softWrap: true,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

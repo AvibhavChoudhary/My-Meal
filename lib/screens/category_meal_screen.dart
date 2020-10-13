@@ -21,12 +21,6 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
   List<Meal> categoryMeals;
   var isLoaded = false;
 
-  void removeMeal(String id) {
-    setState(() {
-      widget.availableMeal.removeWhere((element) => element.id == id);
-    });
-  }
-
   // @override
   // void initState() {
   //   super.initState();
@@ -58,7 +52,6 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
         body: ListView.builder(
           itemBuilder: (ctx, index) {
             return MealItem(
-                removeMealItem: removeMeal,
                 id: categoryMeals[index].id,
                 title: categoryMeals[index].title,
                 imageUrl: categoryMeals[index].imageUrl,

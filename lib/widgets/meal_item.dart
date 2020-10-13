@@ -9,24 +9,21 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-  final Function removeMealItem;
 
-  MealItem(
-      {@required this.title,
-      @required this.id,
-      @required this.imageUrl,
-      @required this.affordability,
-      @required this.complexity,
-      @required this.duration,
-      @required this.removeMealItem});
+  MealItem({
+    @required this.title,
+    @required this.id,
+    @required this.imageUrl,
+    @required this.affordability,
+    @required this.complexity,
+    @required this.duration,
+  });
 
   void selectMeal(context) {
     Navigator.of(context)
         .pushNamed(MealDetail.routeName, arguments: id)
         .then((mealId) {
-      if (mealId != null) {
-        removeMealItem(mealId);
-      }
+      //..
     });
   }
 

@@ -1,59 +1,58 @@
-import 'package:flutter/material.dart';
 import 'package:my_meal/models/category.dart';
 
 import 'models/meal.dart';
 
 const DUMMY_CATEGORIES = const [
   Category(
-    id: 'c1',
-    title: 'Italian',
-    color: Colors.purple,
-  ),
+      id: 'c1',
+      title: 'Italian',
+      imageUrl:
+          "https://media.istockphoto.com/photos/spaghetti-picture-id524652637?b=1&k=6&m=524652637&s=170667a&w=0&h=BfpccWJ7QHVpp6scdCbuQJJcGyXZsg6L-nfBxiCF1uo="),
   Category(
-    id: 'c2',
-    title: 'Quick & Easy',
-    color: Colors.red,
-  ),
+      id: 'c2',
+      title: 'Quick & Easy',
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2017/02/24/23/54/food-2096657__340.jpg"),
   Category(
-    id: 'c3',
-    title: 'Hamburgers',
-    color: Colors.orange,
-  ),
+      id: 'c3',
+      title: 'Hamburgers',
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246__340.jpg"),
   Category(
-    id: 'c4',
-    title: 'German',
-    color: Colors.amber,
-  ),
+      id: 'c4',
+      title: 'German',
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2017/08/03/18/23/weisswurst-2577747__340.jpg"),
   Category(
-    id: 'c5',
-    title: 'Light & Lovely',
-    color: Colors.blue,
-  ),
+      id: 'c5',
+      title: 'Light & Lovely',
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2018/02/09/09/43/love-3141228__340.jpg"),
   Category(
-    id: 'c6',
-    title: 'Exotic',
-    color: Colors.green,
-  ),
+      id: 'c6',
+      title: 'Exotic',
+      imageUrl:
+          "https://media.istockphoto.com/photos/homemade-spicy-shrimp-tacos-picture-id542331706?b=1&k=6&m=542331706&s=170667a&w=0&h=d30QjNQFFA9KpQ1UYrNvNNcIYOTVMJfh9g_fPucKNEo="),
   Category(
-    id: 'c7',
-    title: 'Breakfast',
-    color: Colors.lightBlue,
-  ),
+      id: 'c7',
+      title: 'Breakfast',
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2016/11/06/23/31/breakfast-1804457__340.jpg"),
   Category(
-    id: 'c8',
-    title: 'Asian',
-    color: Colors.lightGreen,
-  ),
+      id: 'c8',
+      title: 'Asian',
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2016/11/18/15/31/cooking-1835369__340.jpg"),
   Category(
-    id: 'c9',
-    title: 'French',
-    color: Colors.pink,
-  ),
+      id: 'c9',
+      title: 'French',
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707__340.jpg"),
   Category(
-    id: 'c10',
-    title: 'Summer',
-    color: Colors.teal,
-  ),
+      id: 'c10',
+      title: 'Summer',
+      imageUrl:
+          "https://media.istockphoto.com/photos/peoples-hands-with-glasses-of-rose-wine-over-picnic-table-picture-id1170475875?b=1&k=6&m=1170475875&s=170667a&w=0&h=tfo4q5cAHC5Ie9VAqsBNxq50Xn-VRY937J0FsAI8h6A="),
 ];
 
 const DUMMY_MEALS = const [
