@@ -7,9 +7,8 @@ class CategoryItem extends StatelessWidget {
   final String id;
 
   void showMealScreen(BuildContext ctx) {
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-      return CategoryMealScreen(title: title, id: id);
-    }));
+    Navigator.of(ctx).pushNamed(CategoryMealScreen.routeName,
+        arguments: {"id": id, "title": title});
   }
 
   CategoryItem(this.title, this.id, this.color);

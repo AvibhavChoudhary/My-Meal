@@ -1,22 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:my_meal/dummy_data.dart';
+import 'package:my_meal/screens/category_meal_screen.dart';
+import 'package:my_meal/screens/filterScreen.dart';
 import 'package:my_meal/screens/meal_detail_screen.dart';
 import 'package:my_meal/screens/tabs_screen.dart';
 
+import 'models/meal.dart';
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map<String, bool> _filter = {
+    "gluten": false,
+    "lactose": false,
+    "vegan": false,
+    "vegetarian": false
+  };
+
+  List<Meal> availableMeal = DUMMY_MEALS;
+
+  void _setFilters(Map<String, bool> filters) {
+    setState(() {
+      _filter = filters;
+
+      availableMeal = DUMMY_MEALS.where((meal) {
+        if (_filter["gluten"] && !meal.isGlutenFree) {
+          return false;
+        }
+        if (_filter["lactose"] && !meal.isLactoseFree) {
+          return false;
+        }
+        if (_filter["vegan"] && !meal.isVegan) {
+          return false;
+        }
+        if (_filter["vegetarian"] && !meal.isVegetarian) {
+          return false;
+        }
+        return true;
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "My Meals",
-      home: TabScreen(),
       routes: {
+        "/": (ctx) => TabScreen(),
+        CategoryMealScreen.routeName: (ctx) =>
+            CategoryMealScreen(availableMeal),
         MealDetail.routeName: (ctx) => MealDetail(),
+        FilterScreen.routeName: (ctx) => FilterScreen(_setFilters, _filter),
       },
       theme: ThemeData(
           primarySwatch: Colors.amber,
-          accentColor: Colors.black,
+          accentColor: Colors.amberAccent,
           fontFamily: "Raleway",
           // canvasColor: Color.fromRGBO(255, 254, 229, 1),
           textTheme: ThemeData.light().textTheme.copyWith(
